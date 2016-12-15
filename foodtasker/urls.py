@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^restaurant/sign-in/$', auth_views.login,
         {'template_name':'restaurant/sign_in.html'},
         name = 'restaurant-sign-in'),
-    url(r'^restaurant/sign-out', auth_views.logout,
+    url(r'^restaurant/sign-out/$', auth_views.logout,
         {'next_page': '/'},
         name = 'restaurant-sign-out'),
     url(r'^restaurant/$', views.restaurant_home, name='restaurant-home')
