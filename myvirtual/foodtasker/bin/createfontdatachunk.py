@@ -1,4 +1,3 @@
-#!/Users/toanhtran/Desktop/iOS-Dev/Code4Startup/foodtasker/myvirtual/foodtasker/bin/python3
 from __future__ import print_function
 import base64
 import os
