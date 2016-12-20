@@ -40,7 +40,7 @@ urlpatterns = [
     url(r'^restaurant/meal$', views.restaurant_meal, name='restaurant-meal'),
     url(r'^restaurant/order$', views.restaurant_order, name='restaurant-order'),
     url(r'^restaurant/report$', views.restaurant_report, name='restaurant-report'),
-    
+
 
     #Sign In/ Sign up/Sign Out
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
