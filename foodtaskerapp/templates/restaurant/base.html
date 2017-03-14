@@ -17,7 +17,6 @@
     <a href="{% url 'restaurant-order' %}" class="list-group-item">Orders</a>
     <a href="{% url 'restaurant-meal' %}" class="list-group-item">Meals</a>
     <a href="{% url 'restaurant-report' %}" class="list-group-item">Reports</a>
-    
     <span class="text-uppercase">Profile</span>
        <a href="{% url 'restaurant-account' %}" class="list-group-item">Accounts</a>
 </div>
@@ -25,7 +24,4 @@
 <div class="text-center">
     <a href="{% url 'restaurant-sign-out' %}?next={{ request.path }}" class="btn btn-pink">Logout</a>
 </div>
-
-
-
 {% endblock %}
