@@ -20,7 +20,7 @@ def restaurant_account(request):
     user_form = UserFormForEdit(instance = request.user)
     restaurant_form = RestaurantForm(instance = request.user.restaurant)
 
-    if request.method == "POST"
+    if request.method == "POST":
         user_form = UserFormForEdit(request.POST, instance = request.user)
         restaurant_form = RestaurantForm(request.POST, request.FILES, instance = request.user.restaurant)
 
@@ -36,6 +36,10 @@ def restaurant_account(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_meal(request):
     return render(request, 'restaurant/meal.html', {})
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_add_meal(request):
+    return render(request, 'restaurant/add_meal.html', {})
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_order(request):
