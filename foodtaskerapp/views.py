@@ -22,6 +22,11 @@ def restaurant_account(request):
 
     if request.method == "POST"
         user_form = UserFormForEdit(request.POST, instance = request.user)
+        restaurant_form = RestaurantForm(request.POST, request.FILES, instance = request.user.restaurant)
+
+        if user_form.is_valid() and restaurant_form.is_valid():
+            user_form.save()
+            restaurant_form.save()
 
     return render(request, 'restaurant/account.html', {
     "user_form": user_form,
