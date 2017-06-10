@@ -27,10 +27,15 @@ def restaurant_account(request):
             user_form.save()
             restaurant_form.save()
 
+    if request.user.restaurant.logo:
+        restaurant_form.fields['logo'].required = False
+
     return render(request, 'restaurant/account.html', {
     "user_form": user_form,
     "restaurant_form": restaurant_form
     })
+
+
 
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_meal(request):
@@ -40,17 +45,32 @@ def restaurant_meal(request):
 @login_required(login_url='/restaurant/sign-in/')
 def restaurant_add_meal(request):
     form = MealForm()
-    
+
     if request.method == "POST":
         form = MealForm(request.POST, request.FILES)
-        
+
         if form.is_valid():
             meal = form.save(commit=False)
             meal.restaurant = request.user.restaurant
             meal.save()
             return redirect(restaurant_meal)
-        
+
     return render(request, 'restaurant/add_meal.html', {
+            "form": form
+        })
+
+@login_required(login_url='/restaurant/sign-in/')
+def restaurant_edit_meal(request, meal_id):
+    form = MealForm(instance = Meal.objects.get(id = meal_id))
+
+    if request.method == "POST":
+        form = MealForm(request.POST, request.FILES, instance = Meal.objects.get(id = meal_id))
+
+        if form.is_valid():
+            form.save()
+            return redirect(restaurant_meal)
+
+    return render(request, 'restaurant/edit_meal.html', {
             "form": form
         })
 

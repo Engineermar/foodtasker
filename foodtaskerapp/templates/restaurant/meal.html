@@ -11,7 +11,7 @@
                 <br/>
                 <br/>
             </div>
-            <table class="table table-boardered table-hover table-striped">
+            <table class="table table-bordered table-hover table-striped">
                 <thead>
                     <tr class="bg-gray text-white">
                         <th>Id</th>
@@ -25,10 +25,10 @@
                     {% for meal in meals %}
                     <tr>
                         <td scope="row">{{ meal.id }}</td>
-                        <td><a href="#">{{ meal.name}}</a></td>
+                        <td><a href="{% url 'restaurant-edit-meal' meal.id %}">{{ meal.name}}</a></td>
                         <td>{{ meal.short_description }}</td>
                         <td>{{ meal.price }}</td>
-                        <td class="text-center"><img class="img-rounded" 
+                        <td class="text-center"><img class="img-rounded"
                         src="{{ MEDIA_URL }}{{ meal.image }}" width="50" height="50"></td>
                     </tr>
                     {% endfor %}
