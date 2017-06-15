@@ -44,10 +44,12 @@ urlpatterns = [
     url(r'^restaurant/report$', views.restaurant_report, name='restaurant-report'),
 
 
+
     #Sign In/ Sign up/Sign Out
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
     #/convert-token (sign in / sign up)
     #/revoke-token (sign out)
+    url(r'^api/restaurant/order/notification/(?P<last_request_time>.+)/$', apis.restaurant_order_notification),
 
     #API for Customers
     url(r'^api/customer/restaurants/$', apis.customer_get_restaurant),
