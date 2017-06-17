@@ -23,7 +23,6 @@ class RestaurantForm(forms.ModelForm):
         model = Restaurant
         fields = ("name", "phone", "address", "logo")
 
-
 class MealForm(forms.ModelForm):
     class Meta:
         model = Meal
