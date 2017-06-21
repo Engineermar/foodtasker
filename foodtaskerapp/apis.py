@@ -156,8 +156,17 @@ def driver_pick_orders(request):
         except Order.DoesNotExist:
             return JsonResponse({"status": "failed", "error": "This order has been picked up by another driver."})
 
+#GET params: access_token
 def driver_get_latest_orders(request):
-    return JsonResponse({})
+    access_token = AccessToken.objects.get(token = request.GET.get("access_token"),
+        expires__gt = timezone.now())
+
+    driver = access_token.user.driver
+    order = OrderSerializer(
+        Order.objects.get.filter(driver = driver).order_by("picked_at").last()
+    ).data
+
+    return JsonResponse({"order": order})
 
 def driver_complete_orders(request):
     return JsonResponse({})

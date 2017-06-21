@@ -9,6 +9,7 @@ from foodtaskerapp import views, apis
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    url(r'^api-token-auth/', views.obtain_auth_token),
 
     # Restaurant
     url(r'^restaurant/sign-in/$', auth_views.login,
