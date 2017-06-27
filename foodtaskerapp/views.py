@@ -89,6 +89,16 @@ def restaurant_order(request):
     return render(request, 'restaurant/order.html', {"orders": orders})
 
 @login_required(login_url='/restaurant/sign-in/')
+def restaurant_customer(request):
+    if request.method == "POST":
+        customer = Customer.objects.get(id = request.POST["id"], restaurant = request.user.restaurant)
+
+    orders = Order.objects.filter(restaurant = request.user.restaurant).order_by("-id")
+    return render(request, 'restaurant/customer.html', {"customers": customers})
+
+
+
+@login_required(login_url='/restaurant/sign-in/')
 def restaurant_report(request):
     #Calculate revenue and number of orders by current week
     from datetime import datetime, timedelta
