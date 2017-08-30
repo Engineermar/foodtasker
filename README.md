@@ -13,3 +13,13 @@
 
 <img width="1232" alt="foodtasker-reports" src="https://user-images.githubusercontent.com/10580157/29853468-f753406e-8cf4-11e7-8d15-ace653a65595.png">
 
+
+### Setting up
+
+
+Fork the project to your personal account and get a local copy on your machine.
+Change into the project folder.
+```sh
+$ python manage.py runserver
+```
+Now you should be able to view the slides at http://127.0.0.1:8000/. 
