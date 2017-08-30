@@ -22,4 +22,4 @@ Change into the project folder.
 ```sh
 $ python manage.py runserver
 ```
-Now you should be able to view the slides at http://127.0.0.1:8000/. 
+Now you should be able to view at http://127.0.0.1:8000/. 
